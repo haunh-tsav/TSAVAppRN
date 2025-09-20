@@ -1,0 +1,17 @@
+# Ignore artifacts:
+node_modules
+build
+dist
+ios
+android
+
+# Ignore logs:
+*.log
+
+# Ignore system files:
+.DS_Store
+
+# Ignore other files:
+*.min.js
+*.bundle.js
+*.map
