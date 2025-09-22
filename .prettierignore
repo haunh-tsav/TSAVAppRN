@@ -1,17 +1,10 @@
-# Ignore artifacts:
-node_modules
-build
-dist
-ios
-android
-
-# Ignore logs:
-*.log
-
-# Ignore system files:
-.DS_Store
-
-# Ignore other files:
-*.min.js
-*.bundle.js
-*.map
+node_modules/
+android/
+ios/
+build/
+coverage/
+dist/
+*.config.js
+*.config.cjs
+package-lock.json
+yarn.lock

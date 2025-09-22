@@ -1,19 +1,14 @@
 module.exports = {
   root: true,
-  extends: [
-    '@react-native-community', // base config RN
-    'plugin:@typescript-eslint/recommended', // TypeScript rules
-    'plugin:prettier/recommended', // tích hợp prettier vào ESLint
-  ],
   parser: '@typescript-eslint/parser',
+  extends: [
+    '@react-native-community', // base config của RN
+    'plugin:@typescript-eslint/recommended', // rule cho TypeScript
+    'prettier', // tắt rule xung đột Prettier
+  ],
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
-    // Customize theo nhu cầu dự án
-    'prettier/prettier': 'warn',
-    '@typescript-eslint/no-unused-vars': [
-      'warn',
-      {argsIgnorePattern: '^_', varsIgnorePattern: '^_'},
-    ],
-    'react/react-in-jsx-scope': 'off', // RN không cần import React
+    'prettier/prettier': ['error', {endOfLine: 'auto'}], // báo lỗi khi format sai
+    '@typescript-eslint/no-unused-vars': ['warn'],
   },
 };
