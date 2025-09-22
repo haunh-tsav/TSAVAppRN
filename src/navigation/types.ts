@@ -1,4 +1,4 @@
-import type { Paths } from '@/navigation/paths'
+import type { AppRoutes } from '@/navigation/paths'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type RootScreenProps<
@@ -6,17 +6,17 @@ export type RootScreenProps<
 > = NativeStackScreenProps<RootStackParamList, S>
 
 export type RootStackParamList = {
-  [Paths.Root.App]: undefined
-  [Paths.Root.Auth]: undefined
+  [AppRoutes.Root.App.path]: undefined
+  [AppRoutes.Root.Auth.path]: undefined
 }
 
 export type AuthStackParamList = {
-  [Paths.Auth.Login]: undefined
-  [Paths.Auth.Register]: undefined
+  [AppRoutes.Auth.Login.path]: undefined
+  [AppRoutes.Auth.Register.path]: undefined
 }
 
 export type AppStackParamList = {
-  [Paths.App.ERP.Customer]: undefined
-  [Paths.App.ERP.Supplier]: undefined
-  [Paths.App.ERP.Warehouse]: undefined
+  [AppRoutes.App.ERP.child.KhachHang.path]: undefined
+  [AppRoutes.App.ERP.child.NhaCungCap.path]: undefined
+  [AppRoutes.App.ERP.child.Kho.path]: undefined
 }
