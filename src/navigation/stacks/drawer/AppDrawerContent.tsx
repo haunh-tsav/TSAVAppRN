@@ -1,49 +1,48 @@
-import { DrawerList, DrawerRoutes } from '@/navigation/routes'
+import { DrawerList } from '@/navigation/routes'
 import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from '@react-navigation/drawer'
 import { useNavigationState } from '@react-navigation/native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image, Text, View } from 'react-native'
 import { List } from 'react-native-paper'
 
-const Cats = [
-  DrawerRoutes.Cat.child.KyLucTraiVai,
-  DrawerRoutes.Cat.child.XacNhanKyLucTraiVai,
-]
-
-const ERPs = [
-  DrawerRoutes.ERP.child.KhachHang,
-  DrawerRoutes.ERP.child.NhaCungCap,
-  DrawerRoutes.ERP.child.Kho,
-]
-
 export function AppDrawerContent(props: DrawerContentComponentProps) {
   const currentRouteName = useNavigationState((state) => {
-    return state.routes[state.index].name // screen hiện tại
+    return state.routes[state.index].name
   })
-  const [currentGroupName, setCurrentGroupName] = useState<string>(() => {
-    // Childs => currentRouteName === child.path => groupName
-    const childs = DrawerList.map((item) => item.childs).flat()
+
+  const [currentGroupName, setCurrentGroupName] = useState<string>('')
+  const [expandedGroups, setExpandedGroups] = useState<string[]>([])
+
+  // 🔹 Cập nhật group hiện tại khi route đổi
+  useEffect(() => {
+    const childs = DrawerList.flatMap((item) => item.childs)
     const currentChild = childs.find((item) => item.path === currentRouteName)
-    console.log(currentChild?.name)
-    return currentChild ? currentChild.groupName : ''
-  })
+    const groupName = currentChild?.groupName ?? ''
+    setCurrentGroupName(groupName)
+
+    // 🔹 Tự động expand accordion chứa item đang active
+    if (groupName && !expandedGroups.includes(groupName)) {
+      setExpandedGroups((prev) => [...prev, groupName])
+    }
+  }, [currentRouteName])
 
   const handlePressed = (path: string, groupName: string) => {
     props.navigation.navigate(path)
     setCurrentGroupName(groupName)
   }
 
-  // Accordion được active nếu nó mở HOẶC có item con được chọn
-  const isAccordionActive =
-    Cats.every((item) => item.path == currentRouteName) ||
-    ERPs.every((item) => item.path == currentRouteName)
-
-  const colorActive = (status: boolean) => {
-    return status ? 'tomato' : 'gray'
+  const toggleAccordion = (groupName: string) => {
+    setExpandedGroups((prev) =>
+      prev.includes(groupName)
+        ? prev.filter((g) => g !== groupName)
+        : [...prev, groupName],
+    )
   }
+
+  const colorActive = (status: boolean) => (status ? 'tomato' : 'gray')
 
   return (
     <DrawerContentScrollView {...props}>
@@ -56,45 +55,42 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
         />
         <Text>{currentRouteName}</Text>
 
-        <List.Section title="">
-          {/* Cats */}
+        <List.Section>
           {DrawerList.map((group) => {
+            const isGroupActive = currentGroupName === group.groupName
             return (
               <List.Accordion
                 key={group.key}
                 title={group.name}
+                expanded={expandedGroups.includes(group.groupName)} // ✅ controlled
+                onPress={() => toggleAccordion(group.groupName)}
                 left={(props) => (
                   <List.Icon
                     {...props}
                     icon={group.iconName}
-                    color={colorActive(currentGroupName === group.groupName)}
+                    color={colorActive(isGroupActive)}
                   />
                 )}
-                titleStyle={{
-                  color: colorActive(currentGroupName === group.groupName),
-                }}
+                titleStyle={{ color: colorActive(isGroupActive) }}
               >
-                {group.childs.map((item) => {
-                  return (
-                    <List.Item
-                      key={item.path}
-                      title={item.name}
-                      onPress={() => handlePressed(item.path, item.groupName)}
-                      style={{ backgroundColor: '#ffffffff', paddingLeft: 36 }}
-                      titleStyle={{
-                        color:
-                          currentRouteName === item.path ? 'tomato' : '#333',
-                      }}
-                      left={(props) => (
-                        <List.Icon
-                          {...props}
-                          icon={item.iconName}
-                          color={colorActive(item.path === currentRouteName)}
-                        />
-                      )}
-                    />
-                  )
-                })}
+                {group.childs.map((item) => (
+                  <List.Item
+                    key={item.path}
+                    title={item.name}
+                    onPress={() => handlePressed(item.path, item.groupName)}
+                    style={{ backgroundColor: '#fff', paddingLeft: 36 }}
+                    titleStyle={{
+                      color: currentRouteName === item.path ? 'tomato' : '#333',
+                    }}
+                    left={(props) => (
+                      <List.Icon
+                        {...props}
+                        icon={item.iconName}
+                        color={colorActive(item.path === currentRouteName)}
+                      />
+                    )}
+                  />
+                ))}
               </List.Accordion>
             )
           })}
