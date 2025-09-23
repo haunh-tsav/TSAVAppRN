@@ -42,7 +42,7 @@ export type AppDrawerStackParamList = {
 export type DrawerGroupType = {
   key: number
   name: string
-  path: string
+  groupName: string
   roles: UserRole[]
   iconName: string // MaterialCommunityIcons name
   childs: DrawerItemType[]

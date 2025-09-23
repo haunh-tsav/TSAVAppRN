@@ -114,14 +114,14 @@ export const DrawerList: DrawerGroupType[] = [
   {
     key: 0,
     name: 'ERP',
-    path: 'erp',
+    groupName: 'ERP',
     roles: ['admin', 'user'],
     iconName: 'folder',
     childs: [
       {
         key: 0,
         name: 'Khách hàng',
-        groupName: 'erp',
+        groupName: 'ERP',
         path: 'khach-hang',
         roles: ['admin', 'guest'],
         component: KhachHangScreen,
@@ -130,7 +130,7 @@ export const DrawerList: DrawerGroupType[] = [
       {
         key: 1,
         name: 'Nhà cung cấp',
-        groupName: 'erp',
+        groupName: 'ERP',
         path: 'nha-cung-cap',
         roles: ['admin'],
         component: NhaCungCapScreen,
@@ -139,7 +139,7 @@ export const DrawerList: DrawerGroupType[] = [
       {
         key: 2,
         name: 'Kho',
-        groupName: 'erp',
+        groupName: 'ERP',
         path: 'kho',
         roles: ['admin'],
         component: KhoScreen,
@@ -148,7 +148,7 @@ export const DrawerList: DrawerGroupType[] = [
       {
         key: 3,
         name: 'Hạng mục',
-        groupName: 'erp',
+        groupName: 'ERP',
         path: 'hang-muc',
         roles: ['admin'],
         component: HangMucScreen,
@@ -159,14 +159,14 @@ export const DrawerList: DrawerGroupType[] = [
   {
     key: 1,
     name: 'Cắt',
-    path: 'cat',
+    groupName: 'Cat',
     roles: ['admin', 'user'],
     iconName: 'folder',
     childs: [
       {
         key: 0,
         name: 'Ký lục trãi vãi',
-        groupName: 'cat',
+        groupName: 'Cat',
         path: 'ky-luc-trai-vai',
         roles: ['admin', 'user'],
         component: KyLucTraiVaiScreen,
@@ -175,7 +175,7 @@ export const DrawerList: DrawerGroupType[] = [
       {
         key: 1,
         name: 'Xác nhận ký lục trãi vãi',
-        groupName: 'cat',
+        groupName: 'Cat',
         path: 'xac-nhan-ky-luc-trai-vai',
         roles: ['admin', 'user'],
         component: XacNhanKyLucTraiVaiScreen,

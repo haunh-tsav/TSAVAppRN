@@ -34,7 +34,7 @@ export default function AppDrawer() {
           },
           // drawerType: 'permanent',
         }}
-        initialRouteName={DrawerRoutes.ERP.child.Kho.path}
+        initialRouteName={DrawerRoutes.ERP.child.KhachHang.path}
       >
         {/* Cut */}
         <Drawer.Screen
