@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/drawer'
 import { useNavigationState } from '@react-navigation/native'
 import React, { useState } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { List } from 'react-native-paper'
 
 const Cats = [
@@ -73,16 +73,15 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
                       key={item.path}
                       title={item.name}
                       onPress={() => handlePressed(item.path)}
-                      style={[styles.item]}
-                      titleStyle={[
-                        styles.itemTitle,
-                        currentRouteName === item.path &&
-                          styles.itemTitleActive,
-                      ]}
+                      style={{ backgroundColor: '#ffffffff', marginLeft: 36 }}
+                      titleStyle={{
+                        color:
+                          currentRouteName === item.path ? 'tomato' : '#333',
+                      }}
                       left={(props) => (
                         <List.Icon
                           {...props}
-                          icon="folder"
+                          icon={item.iconName}
                           color={colorActive(item.path === currentRouteName)}
                         />
                       )}
@@ -179,33 +178,3 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
     </DrawerContentScrollView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 40,
-  },
-  accordion: {
-    backgroundColor: '#fff',
-  },
-  accordionActive: {
-    backgroundColor: '#e3f2fd', // active màu nền khi mở hoặc có item con active
-  },
-  accordionTitle: {
-    color: '#000',
-  },
-  accordionTitleActive: {
-    color: '#1976d2', // màu chữ khi active
-    fontWeight: 'bold',
-  },
-  item: {
-    backgroundColor: '#ffffffff',
-    marginLeft: 36,
-  },
-  itemTitle: {
-    color: '#333',
-  },
-  itemTitleActive: {
-    color: 'tomato',
-  },
-})
