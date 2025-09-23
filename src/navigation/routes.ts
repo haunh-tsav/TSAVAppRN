@@ -52,7 +52,7 @@ export const AuthRoutes = {
 export const BottomRoutes = {
   Home: {
     label: 'Home',
-    path: 'home',
+    path: 'Home',
     icon: HomeScreen,
   },
   Explore: {
