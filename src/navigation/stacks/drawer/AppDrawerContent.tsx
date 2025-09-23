@@ -5,7 +5,7 @@ import {
 } from '@react-navigation/drawer'
 import { useNavigationState } from '@react-navigation/native'
 import React, { useEffect, useState } from 'react'
-import { Image, Text, View } from 'react-native'
+import { Image, View } from 'react-native'
 import { List } from 'react-native-paper'
 
 export function AppDrawerContent(props: DrawerContentComponentProps) {
@@ -53,8 +53,6 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
           resizeMode="contain"
           style={{ width: 64, height: 64, alignSelf: 'center' }}
         />
-        <Text>{currentRouteName}</Text>
-
         <List.Section>
           {DrawerList.map((group) => {
             const isGroupActive = currentGroupName === group.groupName
@@ -72,13 +70,14 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
                   />
                 )}
                 titleStyle={{ color: colorActive(isGroupActive) }}
+                style={{ backgroundColor: '#ffffff' }}
               >
                 {group.childs.map((item) => (
                   <List.Item
                     key={item.path}
                     title={item.name}
                     onPress={() => handlePressed(item.path, item.groupName)}
-                    style={{ backgroundColor: '#fff', paddingLeft: 36 }}
+                    style={{ backgroundColor: '#ffffff', paddingLeft: 36 }}
                     titleStyle={{
                       color: currentRouteName === item.path ? 'tomato' : '#333',
                     }}
