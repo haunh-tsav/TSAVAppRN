@@ -2,7 +2,7 @@ import { useRoute } from '@react-navigation/native'
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const XacNhanKyLucTraiVaiScreen = () => {
+const KhachHangScreen = () => {
   const { name } = useRoute()
   return (
     <View>
@@ -11,4 +11,4 @@ const XacNhanKyLucTraiVaiScreen = () => {
   )
 }
 
-export default XacNhanKyLucTraiVaiScreen
+export default KhachHangScreen

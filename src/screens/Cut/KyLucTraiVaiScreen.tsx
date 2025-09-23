@@ -1,10 +1,12 @@
+import { useRoute } from '@react-navigation/native'
 import React from 'react'
 import { Text, View } from 'react-native'
 
 const KyLucTraiVaiScreen = () => {
+  const { name } = useRoute()
   return (
     <View>
-      <Text>KyLucTraiVaiScreen</Text>
+      <Text>{name}</Text>
     </View>
   )
 }

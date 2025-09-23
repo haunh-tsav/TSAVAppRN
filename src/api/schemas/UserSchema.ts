@@ -16,3 +16,5 @@ export const UserSchema = z.object({
 
 // Kiểu dữ liệu User (hay còn gọi là model) được suy luận từ schema
 export type User = z.infer<typeof UserSchema>
+
+export type UserRole = 'admin' | 'user' | 'guest'

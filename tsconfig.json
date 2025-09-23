@@ -1,6 +1,9 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
+    "moduleResolution": "bundler",
     "jsx": "react-native",
     "allowJs": true,
     "noEmit": true,

@@ -1,13 +1,16 @@
 import { DrawerRoutes } from '@/navigation/routes'
 import { AppDrawerContent } from '@/navigation/stacks/drawer/AppDrawerContent'
 import { AppDrawerStackParamList } from '@/navigation/types'
+import useTheme from '@/theme/hooks/useTheme'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import React from 'react'
 import { DefaultTheme, PaperProvider } from 'react-native-paper'
 
 const Drawer = createDrawerNavigator<AppDrawerStackParamList>()
 
-export default function HomeScreen() {
+export default function AppDrawer() {
+  const { variant, colors } = useTheme()
+
   return (
     <PaperProvider
       theme={{
@@ -33,15 +36,6 @@ export default function HomeScreen() {
         }}
         initialRouteName={DrawerRoutes.ERP.child.Kho.path}
       >
-        {/* {DrawerList.map((item) => {
-          return (
-            <Drawer.Screen
-              key={item.key}
-              component={item}
-              name={DrawerRoutes.Cat.child.KyLucTraiVai.path}
-            />
-          )
-        })} */}
         {/* Cut */}
         <Drawer.Screen
           component={DrawerRoutes.Cat.child.KyLucTraiVai.component}

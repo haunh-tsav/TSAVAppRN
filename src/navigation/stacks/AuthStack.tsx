@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import LoginScreen from '@/screens/Authen/Login/LoginScreen'
 import RegisterScreen from '@/screens/Authen/Register/RegisterScreen'
 
-import { AppRoutes } from '@/navigation/paths'
+import { AppRoutes } from '@/navigation/routes'
 import { AuthStackParamList } from '@/navigation/types'
 import useTheme from '@/theme/hooks/useTheme'
 

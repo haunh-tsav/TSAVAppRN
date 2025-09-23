@@ -1,12 +1,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-const CustomerScreen = () => {
+const HangMucScreen = () => {
   return (
     <View>
-      <Text>Customer</Text>
+      <Text>HangMucScreen</Text>
     </View>
   )
 }
 
-export default CustomerScreen
+export default HangMucScreen

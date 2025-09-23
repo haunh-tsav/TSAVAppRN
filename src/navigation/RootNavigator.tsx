@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import useAuth from '@/api/hooks/useAuth'
-import { AppRoutes } from '@/navigation/paths'
+import { RootRoutes } from '@/navigation/routes'
 import AppStack from '@/navigation/stacks/AppStack'
 import AuthStack from '@/navigation/stacks/AuthStack'
 import { useTheme } from '@/theme'
@@ -22,18 +22,12 @@ export default function RootNavigator() {
         <RootStack.Navigator
           key={variant}
           initialRouteName={
-            !authenticated ? AppRoutes.Root.App.path : AppRoutes.Root.Auth.path
+            !authenticated ? RootRoutes.App.path : RootRoutes.Auth.path
           }
           screenOptions={{ headerShown: false }}
         >
-          <RootStack.Screen
-            component={AppStack}
-            name={AppRoutes.Root.App.path}
-          />
-          <RootStack.Screen
-            component={AuthStack}
-            name={AppRoutes.Root.Auth.path}
-          />
+          <RootStack.Screen component={AppStack} name={RootRoutes.App.path} />
+          <RootStack.Screen component={AuthStack} name={RootRoutes.Auth.path} />
         </RootStack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
