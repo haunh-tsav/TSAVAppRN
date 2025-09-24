@@ -1,12 +1,14 @@
 import { BottomRoutes } from '@/navigation/routes'
 import { AppBottomStackParamList } from '@/navigation/types'
 import useTheme from '@/theme/hooks/useTheme'
+import Icon from '@react-native-vector-icons/feather'
 import {
   BottomTabBarButtonProps,
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs'
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { IconButton } from 'react-native-paper'
 
 const Tab = createBottomTabNavigator<AppBottomStackParamList>()
 
@@ -43,10 +45,27 @@ export default function AppStack() {
               onPress={props.onPress}
             >
               <View style={styles.centerButtonInner}>
-                <Text style={{ color: 'white', fontSize: 20 }}>+</Text>
+                <Icon name="home" size={20} />
               </View>
             </TouchableOpacity>
           ),
+          headerShown: true,
+          headerTintColor: colors.white,
+          headerStyle: {
+            backgroundColor: colors.primary,
+          },
+          headerRight: (props) => {
+            return (
+              <IconButton
+                icon="bell"
+                iconColor={props.tintColor}
+                size={20}
+                onPress={() => console.log('Pressed')}
+              />
+            )
+          },
+          headerTitle: 'TMS APP',
+          headerTitleAlign: 'center'
         }}
       />
       <Tab.Screen
@@ -76,9 +95,27 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#3b82f6',
+    backgroundColor: '#ffffff',
     justifyContent: 'center',
     alignItems: 'center',
     elevation: 5,
+  },
+  header: {
+    backgroundColor: '#1E88E5',
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  title: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 })
