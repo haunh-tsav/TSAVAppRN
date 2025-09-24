@@ -9,7 +9,8 @@
     "noEmit": true,
     "types": ["react-native", "jest", "node"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@env": ["./env.d.ts"]
     }
   },
   "include": [
@@ -22,7 +23,8 @@
     ".*.js",
     "*.ts",
     ".prettierrc.mjs",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "env.d.ts"
   ],
   "exclude": ["node_modules", "_", "android", "ios"]
 }

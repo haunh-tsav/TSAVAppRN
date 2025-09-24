@@ -53,47 +53,65 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
           resizeMode="contain"
           style={{ width: 64, height: 64, alignSelf: 'center' }}
         />
-        <List.Section>
-          {DrawerList.map((group) => {
-            const isGroupActive = currentGroupName === group.groupName
-            return (
-              <List.Accordion
-                key={group.key}
-                title={group.name}
-                expanded={expandedGroups.includes(group.groupName)} // ✅ controlled
-                onPress={() => toggleAccordion(group.groupName)}
-                left={(props) => (
-                  <List.Icon
-                    {...props}
-                    icon={group.iconName}
-                    color={colorActive(isGroupActive)}
-                  />
-                )}
-                titleStyle={{ color: colorActive(isGroupActive) }}
-                style={{ backgroundColor: '#ffffff' }}
-              >
-                {group.childs.map((item) => (
-                  <List.Item
-                    key={item.path}
-                    title={item.name}
-                    onPress={() => handlePressed(item.path, item.groupName)}
-                    style={{ backgroundColor: '#ffffff', paddingLeft: 36 }}
-                    titleStyle={{
-                      color: currentRouteName === item.path ? 'tomato' : '#333',
-                    }}
-                    left={(props) => (
-                      <List.Icon
-                        {...props}
-                        icon={item.iconName}
-                        color={colorActive(item.path === currentRouteName)}
-                      />
-                    )}
-                  />
-                ))}
-              </List.Accordion>
-            )
-          })}
-        </List.Section>
+        <View>
+          {/* <List.Item
+            title="Dashboard"
+            onPress={() => handlePressed('dashboard', '')}
+            style={{ backgroundColor: '#ffffff' }}
+            titleStyle={{
+              color: currentRouteName === 'dashboard' ? 'tomato' : '#333',
+            }}
+            left={(props) => (
+              <List.Icon
+                {...props}
+                icon="folder"
+                color={colorActive('dashboard' === currentRouteName)}
+              />
+            )}
+          /> */}
+          <List.Section>
+            {DrawerList.map((group) => {
+              const isGroupActive = currentGroupName === group.groupName
+              return (
+                <List.Accordion
+                  key={group.key}
+                  title={group.name}
+                  expanded={expandedGroups.includes(group.groupName)} // ✅ controlled
+                  onPress={() => toggleAccordion(group.groupName)}
+                  left={(props) => (
+                    <List.Icon
+                      {...props}
+                      icon={group.iconName}
+                      color={colorActive(isGroupActive)}
+                    />
+                  )}
+                  titleStyle={{ color: colorActive(isGroupActive) }}
+                  style={{ backgroundColor: '#ffffff' }}
+                >
+                  {group.childs.map((item) => (
+                    <List.Item
+                      key={item.path}
+                      title={item.name}
+                      onPress={() => handlePressed(item.path, item.groupName)}
+                      style={{ backgroundColor: '#ffffff', paddingLeft: 36 }}
+                      titleStyle={{
+                        color:
+                          currentRouteName === item.path ? 'tomato' : '#333',
+                      }}
+                      left={(props) => (
+                        <List.Icon
+                          {...props}
+                          icon={item.iconName}
+                          color={colorActive(item.path === currentRouteName)}
+                        />
+                      )}
+                    />
+                  ))}
+                </List.Accordion>
+              )
+            })}
+          </List.Section>
+        </View>
       </View>
     </DrawerContentScrollView>
   )

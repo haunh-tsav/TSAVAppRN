@@ -1,4 +1,4 @@
-import { UserRole } from '@/api/schemas/UserSchema'
+import { UserRole } from '@/api/schemas/user.schema'
 import type {
   AuthRoutes,
   BottomRoutes,

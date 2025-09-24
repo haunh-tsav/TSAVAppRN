@@ -1,6 +1,7 @@
-import { DrawerList, DrawerRoutes } from '@/navigation/routes'
+import { DrawerList } from '@/navigation/routes'
 import { AppDrawerContent } from '@/navigation/stacks/drawer/AppDrawerContent'
 import { AppDrawerStackParamList } from '@/navigation/types'
+import DashboardScreen from '@/screens/Dashboard/DashboardScreen'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import React from 'react'
 import { DefaultTheme, PaperProvider } from 'react-native-paper'
@@ -20,7 +21,6 @@ export default function AppDrawer() {
       }}
     >
       <Drawer.Navigator
-        defaultStatus="open"
         drawerContent={AppDrawerContent}
         screenOptions={{
           headerShown: true,
@@ -31,11 +31,22 @@ export default function AppDrawer() {
           },
           // drawerType: 'permanent',
         }}
-        initialRouteName={DrawerRoutes.ERP.child.KhachHang.path}
+        initialRouteName={DrawerList[0].childs[0].path}
       >
+        {/* <Drawer.Screen
+          component={DashboardScreen}
+          name="dashboard"
+          options={{ title: 'Dashboard' }}
+        /> */}
         {DrawerList.map((item) => item.childs).map((child) =>
           child.map((c) => {
-            return <Drawer.Screen component={c.component} name={c.path} />
+            return (
+              <Drawer.Screen
+                component={c.component}
+                name={c.path}
+                options={{ title: c.name }}
+              />
+            )
           }),
         )}
       </Drawer.Navigator>

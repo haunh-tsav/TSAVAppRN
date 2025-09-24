@@ -20,6 +20,7 @@ import {
 import ExploreScreen from '@/screens/Explore/ExploreScreen'
 import HangMucScreen from '@/screens/HangMuc/HangMucScreen'
 import HomeScreen from '@/screens/Home/HomeScreen'
+import ProductScreen from '@/screens/Product/ProductScreen'
 import ProfileScreen from '@/screens/Profile/ProfileScreen'
 import SearchScreen from '@/screens/Search/SearchScreen'
 
@@ -152,6 +153,15 @@ export const DrawerList: DrawerGroupType[] = [
         path: 'hang-muc',
         roles: ['admin'],
         component: HangMucScreen,
+        iconName: 'folder',
+      },
+      {
+        key: 4,
+        name: 'Sản phẩm',
+        groupName: 'ERP',
+        path: 'san-pham',
+        roles: ['admin'],
+        component: ProductScreen,
         iconName: 'folder',
       },
     ],

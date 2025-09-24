@@ -1,37 +1,33 @@
 // src/api/client.ts
-import axios, {
-  AxiosError,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-} from 'axios'
+import axios, { AxiosError, AxiosResponse } from 'axios'
 import { MMKV } from 'react-native-mmkv'
 
 const storage = new MMKV()
 
 // Tạo instance chung cho toàn bộ API
 const apiClient = axios.create({
-  baseURL: `${process.env.API_URL ?? ''}/`, // thay bằng API backend của bạn
+  baseURL: `http://10.0.2.2:9000/api`, // thay bằng API backend của bạn
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 10_000, // timeout 10s
+  timeout: 10000, // timeout 10s
 })
 
 // 🛠️ Interceptors
 // Add token trước khi gửi request
-apiClient.interceptors.request.use(
-  (config: InternalAxiosRequestConfig) => {
-    // Ví dụ: lấy token từ MMKV (hoặc AsyncStorage)
-    // const token = MMKV.getString('access_token');
-    const token = storage.getString('access_token')
+// apiClient.interceptors.request.use(
+//   (config: InternalAxiosRequestConfig) => {
+//     // Ví dụ: lấy token từ MMKV (hoặc AsyncStorage)
+//     // const token = MMKV.getString('access_token');
+//     const token = storage.getString('access_token')
 
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`
-    }
-    return config
-  },
-  (error: AxiosError) => Promise.reject(new Error(error.message)),
-)
+//     if (token) {
+//       config.headers.Authorization = `Bearer ${token}`
+//     }
+//     return config
+//   },
+//   (error: AxiosError) => Promise.reject(new Error(error.message)),
+// )
 
 // Xử lý response / refresh token
 apiClient.interceptors.response.use(

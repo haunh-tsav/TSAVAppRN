@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
-import { User } from '@/api/schemas/UserSchema'
+import { User } from '@/api/schemas/user.schema'
 import { userService } from '@/api/services/user.service'
 import { RequestDataType } from '@/api/types'
 
