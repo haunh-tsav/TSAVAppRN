@@ -65,7 +65,7 @@ export default function AppStack() {
             )
           },
           headerTitle: 'TMS APP',
-          headerTitleAlign: 'center'
+          headerTitleAlign: 'center',
         }}
       />
       <Tab.Screen

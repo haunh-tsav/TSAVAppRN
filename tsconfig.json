@@ -7,10 +7,18 @@
     "jsx": "react-native",
     "allowJs": true,
     "noEmit": true,
-    "types": ["react-native", "jest", "node"],
+    "types": [
+      "react-native",
+      "jest",
+      "node"
+    ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@env": ["./env.d.ts"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@env": [
+        "./env.d.ts"
+      ]
     }
   },
   "include": [
@@ -23,8 +31,13 @@
     ".*.js",
     "*.ts",
     ".prettierrc.mjs",
-    "nativewind-env.d.ts",
-    "env.d.ts"
+    "nativewind.d.ts",
+    "nativewind-env.d.ts"
   ],
-  "exclude": ["node_modules", "_", "android", "ios"]
+  "exclude": [
+    "node_modules",
+    "_",
+    "android",
+    "ios"
+  ]
 }

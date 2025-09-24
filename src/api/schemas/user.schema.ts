@@ -1,5 +1,5 @@
-import { StatusType } from '@/utils/typing';
-import * as z from 'zod';
+import { StatusType } from '@/utils/typing'
+import * as z from 'zod'
 
 export const UserSchema = z.object({
   id: z.number(),
