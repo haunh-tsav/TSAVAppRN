@@ -20,6 +20,7 @@ import {
 import ExploreScreen from '@/screens/Explore/ExploreScreen'
 import HangMucScreen from '@/screens/HangMuc/HangMucScreen'
 import HomeScreen from '@/screens/Home/HomeScreen'
+import PanelScreen from '@/screens/Panel/PanelScreen'
 import ProductScreen from '@/screens/Product/ProductScreen'
 import ProfileScreen from '@/screens/Profile/ProfileScreen'
 import SearchScreen from '@/screens/Search/SearchScreen'
@@ -51,25 +52,35 @@ export const AuthRoutes = {
 }
 
 export const BottomRoutes = {
+  Panel: {
+    label: 'Panel',
+    path: 'Panel',
+    icon: 'panel',
+    component: PanelScreen,
+  },
   Home: {
     label: 'Home',
     path: 'Home',
-    icon: HomeScreen,
+    icon: 'home',
+    component: HomeScreen,
   },
   Explore: {
     label: 'Explore',
     path: 'Explore',
-    icon: ExploreScreen,
+    icon: 'explore',
+    component: ExploreScreen,
   },
   Search: {
     label: 'Search',
     path: 'Search',
-    icon: SearchScreen,
+    icon: 'search',
+    component: SearchScreen,
   },
   Profile: {
     label: 'Profile',
     path: 'Profile',
-    icon: ProfileScreen,
+    icon: 'pro',
+    component: ProfileScreen,
   },
 }
 
