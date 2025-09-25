@@ -1,12 +1,11 @@
-import 'react-native-gesture-handler'
-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import 'react-native-gesture-handler'
 import { MMKV } from 'react-native-mmkv'
 
+import RootNavigator from '@/navigation/RootNavigator'
 import { ThemeProvider } from '@/theme'
 import '@/translations'
-import RootNavigator from './src/navigation/RootNavigator'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 export const queryClient = new QueryClient({
   defaultOptions: {
