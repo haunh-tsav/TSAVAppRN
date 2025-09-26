@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import LoginScreen from '@/screens/Authen/Login/LoginScreen'
 import RegisterScreen from '@/screens/Authen/Register/RegisterScreen'
 
-import { AppRoutes } from '@/navigation/routes'
+import { AuthRoutes } from '@/navigation/routes'
 import { AuthStackParamList } from '@/navigation/types'
 import useTheme from '@/theme/hooks/useTheme'
 
@@ -15,13 +15,13 @@ export default function AuthStack() {
   return (
     <Stack.Navigator
       key={variant}
-      initialRouteName={AppRoutes.Auth.Login.path}
+      initialRouteName={AuthRoutes.Login.path}
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen component={LoginScreen} name={AppRoutes.Auth.Login.path} />
+      <Stack.Screen component={LoginScreen} name={AuthRoutes.Login.path} />
       <Stack.Screen
         component={RegisterScreen}
-        name={AppRoutes.Auth.Register.path}
+        name={AuthRoutes.Register.path}
       />
     </Stack.Navigator>
   )

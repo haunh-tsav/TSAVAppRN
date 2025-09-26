@@ -27,7 +27,7 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
     if (groupName && !expandedGroups.includes(groupName)) {
       setExpandedGroups((prev) => [...prev, groupName])
     }
-  }, [currentRouteName])
+  }, [currentRouteName, expandedGroups])
 
   const handlePressed = (path: string, groupName: string) => {
     props.navigation.navigate(path)

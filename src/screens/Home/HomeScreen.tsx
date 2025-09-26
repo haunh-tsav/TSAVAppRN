@@ -1,27 +1,23 @@
+import { homeServices } from '@/screens/Home/routes'
+import { HomeServiceType } from '@/screens/Home/types'
 import React from 'react'
 import { FlatList, Image, SafeAreaView, StyleSheet, View } from 'react-native'
 import { Card, Text } from 'react-native-paper'
 
 export default function HomeScreen() {
-  const data = [
-    { id: '1', title: 'Gọi bảo trì' },
-    { id: '2', title: 'Đơn hàng' },
-    { id: '3', title: 'Sản phẩm' },
-    { id: '4', title: 'Báo cáo' },
-    { id: '5', title: 'Cài đặt' },
-    { id: '6', title: 'Thông báo' },
-  ]
-
-  const renderItem = ({ item }: any) => (
-    <Card
-      style={styles.card}
-      mode="elevated"
-      onPress={() => console.log(item.title)}
-    >
-      <Card.Content>
-        <Text style={styles.text}>{item.title}</Text>
-      </Card.Content>
-    </Card>
+  const renderItem = (item: HomeServiceType) => (
+    <View style={{ flex: 1 }}>
+      <Card
+        style={styles.card}
+        mode="elevated"
+        onPress={() => console.log(item.label)}
+      >
+        <Card.Content>
+          <Text style={styles.text}>{item.label}</Text>
+        </Card.Content>
+      </Card>
+      <Text style={styles.text}>{item.label}</Text>
+    </View>
   )
 
   return (
@@ -39,10 +35,10 @@ export default function HomeScreen() {
         />
         <View>
           <FlatList
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            numColumns={2} // ⬅️ số cột của grid
+            data={homeServices}
+            renderItem={(item) => renderItem(item.item)}
+            keyExtractor={(item) => item.key}
+            numColumns={3} // ⬅️ số cột của grid
             columnWrapperStyle={styles.row} // style cho hàng
           />
         </View>
@@ -54,17 +50,18 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
     padding: 10,
   },
   row: {
     justifyContent: 'space-between', // dàn đều các item trong row
+    alignItems: 'center',
   },
   card: {
     flex: 1,
-    margin: 5,
-    height: 120, // chiều cao item
+    width: 80,
+    height: 80, // chiều cao item
     justifyContent: 'center',
-    alignItems: 'center',
   },
   text: {
     textAlign: 'center',

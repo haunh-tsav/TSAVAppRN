@@ -1,4 +1,6 @@
-const logAxiosError = (error: any) => {
+import { AxiosError } from 'axios'
+
+const logAxiosError = (error: AxiosError) => {
   if (error.response) {
     // Server trả về response với status ngoài 2xx
     console.error('📌 [Axios Error] Response:')

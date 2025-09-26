@@ -57,6 +57,7 @@ export type DrawerItemType = {
   component:
     | React.LazyExoticComponent<() => JSX.Element>
     | React.ReactNode
-    | any
+    | ScreenComponentType<AppDrawerStackParamList, string>
+    | undefined
   iconName: string // MaterialCommunityIcons name
 }

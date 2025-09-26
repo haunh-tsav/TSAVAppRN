@@ -7,8 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start --reset-cache",
     "test": "jest",
-    "lint": "eslint src --ext .ts,.tsx",
-    "format": "prettier --write src",
+    "lint:fix": "eslint --fix src --ext ts,tsx",
+    "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
+    "prettier:fix": "prettier --write src",
     "clean": "cd android && ./gradlew clean && cd .. && rm -rf $TMPDIR/metro-* $TMPDIR/react-native-* && rm -rf node_modules yarn.lock && yarn install && yarn start"
   },
   "dependencies": {

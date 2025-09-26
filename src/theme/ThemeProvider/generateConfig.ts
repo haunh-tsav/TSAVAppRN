@@ -17,7 +17,6 @@ function hasProperty<Config, KeyPath extends string>(
       return false
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     currentObject = currentObject[part]
   }
 
