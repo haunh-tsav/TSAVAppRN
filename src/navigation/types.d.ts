@@ -14,6 +14,7 @@ export type RootScreenProps<
 export type RootStackParamList = {
   [RootRoutes.App.path]: undefined
   [RootRoutes.Auth.path]: undefined
+  TPSDetails: { key: string }
 }
 
 export type AuthStackParamList = {
@@ -37,6 +38,17 @@ export type AppDrawerStackParamList = {
   // Cut
   [DrawerRoutes.Cat.child.KyLucTraiVai.path]: undefined
   [DrawerRoutes.Cat.child.XacNhanKyLucTraiVai.path]: undefined
+}
+
+export type NavigationRouteType = {
+  key: string
+  label: string
+  path: string
+  /**
+   * Material icon
+   */
+  icon?: FC<SvgProps>
+  component: () => JSX.Element
 }
 
 export type DrawerGroupType = {

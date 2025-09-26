@@ -1,5 +1,8 @@
-import { homeServices } from '@/screens/Home/routes'
+import { RootStackParamList } from '@/navigation/types'
+import { HomeRoutes } from '@/screens/Home/routes'
 import { useStyle, useTheme } from '@/theme'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React from 'react'
 import {
   FlatList,
@@ -11,9 +14,16 @@ import {
 } from 'react-native'
 import { Card } from 'react-native-paper'
 
+// Khai báo type cho navigation prop để có gợi ý code
+type HomeScreenNavigationProp = NativeStackNavigationProp<
+  RootStackParamList,
+  'TPSDetails'
+>
+
 export default function HomeScreen() {
   const { colors } = useTheme()
   const styles = useStyle()
+  const navigation = useNavigation<HomeScreenNavigationProp>()
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +35,7 @@ export default function HomeScreen() {
         <View style={localStyles.sectionContainer}>
           <Text style={styles.titleSection}>Liên lạc nội bộ</Text>
           <FlatList
-            data={homeServices}
+            data={HomeRoutes}
             numColumns={3}
             style={localStyles.listService}
             renderItem={({ item, index }) => {
@@ -34,7 +44,11 @@ export default function HomeScreen() {
                   <Card
                     mode="elevated"
                     style={(colors.card, localStyles.gridItemCardView)}
-                    onPress={() => console.log(item.label)}
+                    onPress={() =>
+                      navigation.navigate('TPSDetails', {
+                        key: '123',
+                      })
+                    }
                   >
                     <Card.Content style={{ alignItems: 'center', gap: 10 }}>
                       <item.icon

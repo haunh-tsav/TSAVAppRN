@@ -8,18 +8,19 @@ import useAuth from '@/api/hooks/useAuth'
 import { RootRoutes } from '@/navigation/routes'
 import AppStack from '@/navigation/stacks/AppStack'
 import AuthStack from '@/navigation/stacks/AuthStack'
+import { HomeRoutes } from '@/screens/Home/routes'
 import { useTheme } from '@/theme'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 
 export default function RootNavigator() {
   const { authenticated } = useAuth()
-  const {  } = useTheme()
+  const {} = useTheme()
 
   return (
     <SafeAreaProvider>
       <NavigationContainer
-        // theme={navigationTheme}
+      // theme={navigationTheme}
       >
         <RootStack.Navigator
           // key={variant}
@@ -30,6 +31,15 @@ export default function RootNavigator() {
         >
           <RootStack.Screen component={AppStack} name={RootRoutes.App.path} />
           <RootStack.Screen component={AuthStack} name={RootRoutes.Auth.path} />
+          {HomeRoutes.map((item, index) => {
+            return (
+              <RootStack.Screen
+                key={index}
+                component={item.component}
+                name={item.label}
+              />
+            )
+          })}
         </RootStack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
