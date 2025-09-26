@@ -45,12 +45,19 @@ export default function HomeScreen() {
                     mode="elevated"
                     style={(colors.card, localStyles.gridItemCardView)}
                     onPress={() =>
-                      navigation.navigate('TPSDetails', {
+                      navigation.navigate('goi-tps', {
                         key: '123',
                       })
                     }
                   >
-                    <Card.Content style={{ alignItems: 'center', gap: 10 }}>
+                    <Card.Content
+                      style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '100%',
+                        gap: 10,
+                      }}
+                    >
                       <item.icon
                         width={42}
                         height={42}
@@ -89,7 +96,6 @@ const localStyles = StyleSheet.create({
   sectionContainer: {
     gap: 10,
     marginVertical: 10,
-    marginHorizontal: 10,
   },
   gridView: {},
   gridItem: {
@@ -106,7 +112,7 @@ const localStyles = StyleSheet.create({
   gridItemCardView: {
     width: '100%',
     height: 120,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
   },
   title: {

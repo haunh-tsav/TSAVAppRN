@@ -36,7 +36,7 @@ export default function RootNavigator() {
               <RootStack.Screen
                 key={index}
                 component={item.component}
-                name={item.label}
+                name={item.path}
               />
             )
           })}

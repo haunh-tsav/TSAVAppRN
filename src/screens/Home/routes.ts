@@ -71,7 +71,7 @@ export const HomeRoutes: NavigationRouteType[] = [
   {
     key: '7',
     label: 'Gọi TPS',
-    path: 'TPSDetails',
+    path: 'goi-tps',
     icon: IconImprove,
     component: GoiTPSScreen,
   },
