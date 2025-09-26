@@ -8,7 +8,7 @@ export default function HomeScreen() {
   const renderItem = (item: HomeServiceType) => (
     <View style={{ flex: 1 }}>
       <Card
-        style={styles.card}
+        className="flex-1 w-[80] h-[80] justify-center"
         mode="elevated"
         onPress={() => console.log(item.label)}
       >
@@ -25,12 +25,7 @@ export default function HomeScreen() {
       <View>
         <Image
           source={require('../../theme/assets/images/banner.png')}
-          style={{
-            width: '100%',
-            height: 160,
-            borderRadius: 20,
-            marginTop: -20,
-          }}
+          className="w-full h-[160] rounded-2xl"
           resizeMode="cover"
         />
         <View>
@@ -39,7 +34,6 @@ export default function HomeScreen() {
             renderItem={(item) => renderItem(item.item)}
             keyExtractor={(item) => item.key}
             numColumns={3} // ⬅️ số cột của grid
-            columnWrapperStyle={styles.row} // style cho hàng
           />
         </View>
       </View>
@@ -56,12 +50,6 @@ const styles = StyleSheet.create({
   row: {
     justifyContent: 'space-between', // dàn đều các item trong row
     alignItems: 'center',
-  },
-  card: {
-    flex: 1,
-    width: 80,
-    height: 80, // chiều cao item
-    justifyContent: 'center',
   },
   text: {
     textAlign: 'center',

@@ -3,6 +3,7 @@ module.exports = function (api) {
   return {
     presets: ['module:@react-native/babel-preset'],
     plugins: [
+      'nativewind/babel',
       [
         'module-resolver',
         {
@@ -14,12 +15,12 @@ module.exports = function (api) {
         },
       ],
       ['module:react-native-dotenv'],
-      'react-native-reanimated/plugin',
+      'react-native-reanimated/plugin', 
     ],
     env: {
       production: {
         plugins: ['react-native-paper/babel'],
-      }
-    }
-  }
+      },
+    },
+  };
 };
