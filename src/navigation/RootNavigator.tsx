@@ -14,13 +14,15 @@ const RootStack = createNativeStackNavigator<RootStackParamList>()
 
 export default function RootNavigator() {
   const { authenticated } = useAuth()
-  const { navigationTheme, variant } = useTheme()
+  const {  } = useTheme()
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={navigationTheme}>
+      <NavigationContainer
+        // theme={navigationTheme}
+      >
         <RootStack.Navigator
-          key={variant}
+          // key={variant}
           initialRouteName={
             !authenticated ? RootRoutes.App.path : RootRoutes.Auth.path
           }

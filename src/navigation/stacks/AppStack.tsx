@@ -1,29 +1,19 @@
 import { BottomRoutes } from '@/navigation/routes'
 import { AppBottomStackParamList } from '@/navigation/types'
-import useTheme from '@/theme/hooks/useTheme'
+import { useTheme } from '@/theme'
 import Icon from '@react-native-vector-icons/feather'
-import {
-  BottomTabBarButtonProps,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { IconButton } from 'react-native-paper'
 
 const Tab = createBottomTabNavigator<AppBottomStackParamList>()
 
-const CustomTabBarButton = (props: BottomTabBarButtonProps) => (
-  <TouchableOpacity style={styles.centerButton} onPress={props.onPress}>
-    <View style={styles.centerButtonInner}>{props.children}</View>
-  </TouchableOpacity>
-)
-
 export default function AppStack() {
-  const { variant, colors } = useTheme()
+  const { colors } = useTheme()
 
   return (
     <Tab.Navigator
-      key={variant}
       initialRouteName={BottomRoutes.Home.path}
       screenOptions={{ headerShown: false }}
     >

@@ -24,7 +24,7 @@ function App() {
   return (
     <GestureHandlerRootView>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider storage={storage}>
+        <ThemeProvider>
           <RootNavigator />
         </ThemeProvider>
       </QueryClientProvider>

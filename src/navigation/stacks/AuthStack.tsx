@@ -5,16 +5,13 @@ import RegisterScreen from '@/screens/Authen/Register/RegisterScreen'
 
 import { AuthRoutes } from '@/navigation/routes'
 import { AuthStackParamList } from '@/navigation/types'
-import useTheme from '@/theme/hooks/useTheme'
 
 const Stack = createNativeStackNavigator<AuthStackParamList>()
 
 export default function AuthStack() {
-  const { variant } = useTheme()
-
   return (
     <Stack.Navigator
-      key={variant}
+      // key={variant}
       initialRouteName={AuthRoutes.Login.path}
       screenOptions={{ headerShown: false }}
     >

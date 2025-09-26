@@ -1,39 +1,61 @@
 import { homeServices } from '@/screens/Home/routes'
-import { HomeServiceType } from '@/screens/Home/types'
+import { useStyle, useTheme } from '@/theme'
 import React from 'react'
-import { FlatList, Image, SafeAreaView, StyleSheet, View } from 'react-native'
-import { Card, Text } from 'react-native-paper'
+import {
+  FlatList,
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native'
+import { Card } from 'react-native-paper'
 
 export default function HomeScreen() {
-  const renderItem = (item: HomeServiceType) => (
-    <View style={{ flex: 1 }}>
-      <Card
-        className="flex-1 w-[80] h-[80] justify-center"
-        mode="elevated"
-        onPress={() => console.log(item.label)}
-      >
-        <Card.Content>
-          <Text style={styles.text}>{item.label}</Text>
-        </Card.Content>
-      </Card>
-      <Text style={styles.text}>{item.label}</Text>
-    </View>
-  )
+  const { colors } = useTheme()
+  const styles = useStyle()
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <View>
         <Image
           source={require('../../theme/assets/images/banner.png')}
-          className="w-full h-[160] rounded-2xl"
-          resizeMode="cover"
+          style={localStyles.banner}
         />
-        <View>
+        <View style={localStyles.sectionContainer}>
+          <Text style={styles.titleSection}>Liên lạc nội bộ</Text>
           <FlatList
             data={homeServices}
-            renderItem={(item) => renderItem(item.item)}
-            keyExtractor={(item) => item.key}
-            numColumns={3} // ⬅️ số cột của grid
+            numColumns={3}
+            style={localStyles.listService}
+            renderItem={({ item, index }) => {
+              return (
+                <View key={index} style={localStyles.gridItem}>
+                  <Card
+                    mode="elevated"
+                    style={(colors.card, localStyles.gridItemCardView)}
+                    onPress={() => console.log(item.label)}
+                  >
+                    <Card.Content style={{ alignItems: 'center', gap: 10 }}>
+                      <item.icon
+                        width={42}
+                        height={42}
+                        color={colors.textSecondary}
+                      />
+                      <Text
+                        style={{
+                          textAlign: 'center',
+                          fontWeight: '500',
+                          color: colors.textSecondary,
+                        }}
+                      >
+                        {item.label}
+                      </Text>
+                    </Card.Content>
+                  </Card>
+                </View>
+              )
+            }}
           />
         </View>
       </View>
@@ -41,18 +63,39 @@ export default function HomeScreen() {
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 10,
+const localStyles = StyleSheet.create({
+  banner: {
+    width: '100%',
+    height: 160,
+    resizeMode: 'cover',
   },
-  row: {
-    justifyContent: 'space-between', // dàn đều các item trong row
+  listService: {
+    marginHorizontal: 10,
+  },
+  sectionContainer: {
+    gap: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
+  },
+  gridView: {},
+  gridItem: {
+    flex: 1, // Chia đều không gian trong hàng
+    marginVertical: 10,
+    marginHorizontal: 10,
+    minWidth: 100,
+    minHeight: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 8,
+    rowGap: 10,
+  },
+  gridItemCardView: {
+    width: '100%',
+    height: 120,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {
-    textAlign: 'center',
-    fontWeight: 'bold',
+  title: {
+    fontSize: 16,
   },
 })

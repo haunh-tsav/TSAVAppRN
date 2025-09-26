@@ -4,6 +4,6 @@ export type HomeServiceType = {
   /**
    * Material icon
    */
-  icon: string
+  icon: FC<SvgProps>
   component: () => JSX.Element
 }
