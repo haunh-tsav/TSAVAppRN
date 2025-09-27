@@ -4,15 +4,14 @@ import React from 'react'
 import { Text, View } from 'react-native'
 
 // Khai báo type cho route prop
-type DetailScreenRouteProp = RouteProp<RootStackParamList, 'TPSDetails'>
+type DetailScreenRouteProp = RouteProp<RootStackParamList, 'goi-tps'>
 
 const GoiTPSScreen = () => {
   const route = useRoute<DetailScreenRouteProp>()
-  const { key } = route.params // Nhận tham số
 
   return (
     <View>
-      <Text>GoiTPSScreen with key: ${key}</Text>
+      <Text>GoiTPSScreen</Text>
     </View>
   )
 }

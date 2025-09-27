@@ -1,4 +1,4 @@
-import { AccessoryNoteSchema } from '@/api/schemas/accessoryNote.schema'
+import { AccessoryNoteSchema } from '@/api/schemas/AccessoryNote.schema'
 import { GarmentAccessorySchema } from '@/api/schemas/garmentAccessory.schema'
 import { ProductSchema } from '@/api/schemas/Product.schema'
 import { StatusType } from '@/utils/typing'

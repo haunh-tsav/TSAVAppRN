@@ -22,6 +22,7 @@ import { useTheme } from '@/theme'
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 
 export default function RootNavigator() {
+  const { colors } = useTheme()
   const { authenticated } = useAuth()
   const {} = useTheme()
 
@@ -53,7 +54,15 @@ export default function RootNavigator() {
           <RootStack.Screen
             component={NotificationScreen}
             name="thong-bao"
-            options={{ headerShown: true, title: 'Thông báo' }}
+            options={{
+              headerShown: true,
+              title: 'Thông báo',
+              headerTitleAlign: 'center',
+              headerTintColor: colors.white,
+              headerStyle: {
+                backgroundColor: colors.primary,
+              },
+            }}
           />
         </RootStack.Navigator>
       </NavigationContainer>

@@ -1,4 +1,4 @@
-import { ColorSchema } from '@/api/schemas/color.schema'
+import { ColorSchema } from '@/api/schemas/Color.schema'
 import { ProductSchema } from '@/api/schemas/product.schema'
 import { StatusType } from '@/utils/typing'
 import { z } from 'zod'

@@ -17,7 +17,7 @@ export default function AppStack() {
 
   return (
     <Tab.Navigator
-      initialRouteName="panel"
+      initialRouteName="home"
       screenOptions={{ headerShown: false }}
     >
       {BottomRoutes.map((item, index) => {
