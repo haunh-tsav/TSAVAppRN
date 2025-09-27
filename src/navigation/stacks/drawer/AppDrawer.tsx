@@ -1,12 +1,10 @@
-import { DrawerList } from '@/navigation/routes'
+import { DrawerRoutes } from '@/navigation/routes'
 import { AppDrawerContent } from '@/navigation/stacks/drawer/AppDrawerContent'
-import { AppDrawerStackParamList } from '@/navigation/types'
-import DashboardScreen from '@/screens/Dashboard/DashboardScreen'
 import { createDrawerNavigator } from '@react-navigation/drawer'
 import React from 'react'
 import { DefaultTheme, PaperProvider } from 'react-native-paper'
 
-const Drawer = createDrawerNavigator<AppDrawerStackParamList>()
+const Drawer = createDrawerNavigator()
 
 export default function AppDrawer() {
   return (
@@ -31,17 +29,18 @@ export default function AppDrawer() {
           },
           // drawerType: 'permanent',
         }}
-        initialRouteName={DrawerList[0].childs[0].path}
+        initialRouteName={DrawerRoutes[0].childs[0].path}
       >
         {/* <Drawer.Screen
           component={DashboardScreen}
           name="dashboard"
           options={{ title: 'Dashboard' }}
         /> */}
-        {DrawerList.map((item) => item.childs).map((child) =>
+        {DrawerRoutes.map((item) => item.childs).map((child) =>
           child.map((c) => {
             return (
               <Drawer.Screen
+                key={c.key}
                 component={c.component}
                 name={c.path}
                 options={{ title: c.name }}

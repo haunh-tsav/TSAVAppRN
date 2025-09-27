@@ -17,7 +17,7 @@ import { Card } from 'react-native-paper'
 // Khai báo type cho navigation prop để có gợi ý code
 type HomeScreenNavigationProp = NativeStackNavigationProp<
   RootStackParamList,
-  'TPSDetails'
+  'goi-tps'
 >
 
 export default function HomeScreen() {
@@ -33,7 +33,9 @@ export default function HomeScreen() {
           style={localStyles.banner}
         />
         <View style={localStyles.sectionContainer}>
-          <Text style={styles.titleSection}>Liên lạc nội bộ</Text>
+          <View style={{ marginHorizontal: 20 }}>
+            <Text style={styles.titleSection}>Liên lạc nội bộ</Text>
+          </View>
           <FlatList
             data={HomeRoutes}
             numColumns={3}
@@ -44,11 +46,7 @@ export default function HomeScreen() {
                   <Card
                     mode="elevated"
                     style={(colors.card, localStyles.gridItemCardView)}
-                    onPress={() =>
-                      navigation.navigate('goi-tps', {
-                        key: '123',
-                      })
-                    }
+                    onPress={() => navigation.navigate('goi-tps')}
                   >
                     <Card.Content
                       style={{

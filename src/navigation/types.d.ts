@@ -1,10 +1,5 @@
 import { UserRole } from '@/api/schemas/user.schema'
-import type {
-  AuthRoutes,
-  BottomRoutes,
-  DrawerRoutes,
-  RootRoutes,
-} from '@/navigation/routes'
+import type { BottomRoutes } from '@/navigation/routes'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type RootScreenProps<
@@ -12,32 +7,32 @@ export type RootScreenProps<
 > = NativeStackScreenProps<RootStackParamList, S>
 
 export type RootStackParamList = {
-  [RootRoutes.App.path]: undefined
-  [RootRoutes.Auth.path]: undefined
-  TPSDetails: { key: string }
+  app: undefined // Màn hình không nhận tham số
+  auth: undefined // Màn hình không nhận tham số
+  'goi-bao-tri': undefined // Màn hình không nhận tham số
+  'goi-nguyen-lieu': undefined // Màn hình không nhận tham số
+  'goi-hang-cat': undefined // Màn hình không nhận tham số
+  'goi-it': undefined // Màn hình không nhận tham số
+  'goi-qa': undefined // Màn hình không nhận tham số
+  'goi-qc': undefined // Màn hình không nhận tham số
+  'goi-san-xuat': undefined // Màn hình không nhận tham số
+  'goi-tps': undefined // Màn hình không nhận tham số
+  'goi-an-toan': undefined // Màn hình không nhận tham số
+  'thong-bao': undefined // Màn hình không nhận tham số
 }
 
 export type AuthStackParamList = {
-  [AuthRoutes.Login.path]: undefined
-  [AuthRoutes.Register.path]: undefined
+  login: undefined
+  register: undefined
 }
 
 export type AppBottomStackParamList = {
   // ERP
-  [BottomRoutes.Home.path]: undefined
+  [BottomRoutes.Panel.path]: undefined
   [BottomRoutes.Explore.path]: undefined
+  [BottomRoutes.Home.path]: undefined
   [BottomRoutes.Search.path]: undefined
   [BottomRoutes.Profile.path]: undefined
-}
-
-export type AppDrawerStackParamList = {
-  // ERP
-  [DrawerRoutes.ERP.child.KhachHang.path]: undefined
-  [DrawerRoutes.ERP.child.NhaCungCap.path]: undefined
-  [DrawerRoutes.ERP.child.Kho.path]: undefined
-  // Cut
-  [DrawerRoutes.Cat.child.KyLucTraiVai.path]: undefined
-  [DrawerRoutes.Cat.child.XacNhanKyLucTraiVai.path]: undefined
 }
 
 export type NavigationRouteType = {

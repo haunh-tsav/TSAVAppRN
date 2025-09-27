@@ -5,10 +5,18 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import useAuth from '@/api/hooks/useAuth'
-import { RootRoutes } from '@/navigation/routes'
 import AppStack from '@/navigation/stacks/AppStack'
 import AuthStack from '@/navigation/stacks/AuthStack'
-import { HomeRoutes } from '@/screens/Home/routes'
+import GoiAnToanScreen from '@/screens/Home/screens/GoiAnToan/GoiAnToanScreen'
+import GoiBaoTriScreen from '@/screens/Home/screens/GoiBaoTri/GoiBaoTriScreen'
+import GoiHangCatScreen from '@/screens/Home/screens/GoiHangCat/GoiHangCatScreen'
+import GoiITScreen from '@/screens/Home/screens/GoiIT/GoiITScreen'
+import GoiNguyenLieuScreen from '@/screens/Home/screens/GoiNguyenLieu/GoiNguyenLieuScreen'
+import GoiQAScreen from '@/screens/Home/screens/GoiQA/GoiQAScreen'
+import GoiQCScreen from '@/screens/Home/screens/GoiQC/GoiQCScreen'
+import GoiSanXuatScreen from '@/screens/Home/screens/GoiSanXuat/GoiSanXuatScreen'
+import GoiTPSScreen from '@/screens/Home/screens/GoiTPS/GoiTPSScreen'
+import NotificationScreen from '@/screens/Home/screens/Notification/NotificationScreen'
 import { useTheme } from '@/theme'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
@@ -24,22 +32,25 @@ export default function RootNavigator() {
       >
         <RootStack.Navigator
           // key={variant}
-          initialRouteName={
-            !authenticated ? RootRoutes.App.path : RootRoutes.Auth.path
-          }
+          initialRouteName={!authenticated ? 'thong-bao' : 'auth'}
           screenOptions={{ headerShown: false }}
         >
-          <RootStack.Screen component={AppStack} name={RootRoutes.App.path} />
-          <RootStack.Screen component={AuthStack} name={RootRoutes.Auth.path} />
-          {HomeRoutes.map((item, index) => {
-            return (
-              <RootStack.Screen
-                key={index}
-                component={item.component}
-                name={item.path}
-              />
-            )
-          })}
+          <RootStack.Screen component={AppStack} name="app" />
+          <RootStack.Screen component={AuthStack} name="auth" />
+          {/* Other screens */}
+          <RootStack.Screen component={GoiBaoTriScreen} name="goi-bao-tri" />
+          <RootStack.Screen
+            component={GoiNguyenLieuScreen}
+            name="goi-nguyen-lieu"
+          />
+          <RootStack.Screen component={GoiHangCatScreen} name="goi-hang-cat" />
+          <RootStack.Screen component={GoiITScreen} name="goi-it" />
+          <RootStack.Screen component={GoiQAScreen} name="goi-qa" />
+          <RootStack.Screen component={GoiQCScreen} name="goi-qc" />
+          <RootStack.Screen component={GoiSanXuatScreen} name="goi-san-xuat" />
+          <RootStack.Screen component={GoiTPSScreen} name="goi-tps" />
+          <RootStack.Screen component={GoiAnToanScreen} name="goi-an-toan" />
+          <RootStack.Screen component={NotificationScreen} name="thong-bao" />
         </RootStack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>

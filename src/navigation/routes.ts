@@ -1,22 +1,13 @@
 import AppStack from '@/navigation/stacks/AppStack'
 import AuthStack from '@/navigation/stacks/AuthStack'
 import { DrawerGroupType } from '@/navigation/types'
-import LoginScreen from '@/screens/Authen/Login/LoginScreen'
-import RegisterScreen from '@/screens/Authen/Register/RegisterScreen'
+import LoginScreen from '@/screens/Auth/Login/LoginScreen'
+import RegisterScreen from '@/screens/Auth/Register/RegisterScreen'
 import KyLucTraiVaiScreen from '@/screens/Cut/KyLucTraiVaiScreen'
 import XacNhanKyLucTraiVaiScreen from '@/screens/Cut/XacNhanKyLucTraiVaiScreen'
-import {
-  default as CustomerScreen,
-  default as KhachHangScreen,
-} from '@/screens/ERP/KhachHangScreen'
-import {
-  default as KhoScreen,
-  default as WarehouseScreen,
-} from '@/screens/ERP/KhoScreen'
-import {
-  default as NhaCungCapScreen,
-  default as SupplierScreen,
-} from '@/screens/ERP/NhaCungCapScreen'
+import KhachHangScreen from '@/screens/ERP/KhachHangScreen'
+import KhoScreen from '@/screens/ERP/KhoScreen'
+import NhaCungCapScreen from '@/screens/ERP/NhaCungCapScreen'
 import ExploreScreen from '@/screens/Explore/ExploreScreen'
 import HangMucScreen from '@/screens/HangMuc/HangMucScreen'
 import HomeScreen from '@/screens/Home/HomeScreen'
@@ -24,32 +15,6 @@ import PanelScreen from '@/screens/Panel/PanelScreen'
 import ProductScreen from '@/screens/Product/ProductScreen'
 import ProfileScreen from '@/screens/Profile/ProfileScreen'
 import SearchScreen from '@/screens/Search/SearchScreen'
-
-export const RootRoutes = {
-  App: {
-    path: 'app',
-    label: 'App',
-    component: AppStack,
-  },
-  Auth: {
-    path: 'auth',
-    label: 'Auth',
-    component: AuthStack,
-  },
-}
-
-export const AuthRoutes = {
-  Login: {
-    path: 'login',
-    label: 'Login',
-    component: LoginScreen,
-  },
-  Register: {
-    path: 'register',
-    label: 'Register',
-    component: RegisterScreen,
-  },
-}
 
 export const BottomRoutes = {
   Panel: {
@@ -84,45 +49,7 @@ export const BottomRoutes = {
   },
 }
 
-export const DrawerRoutes = {
-  ERP: {
-    label: 'ERP',
-    child: {
-      KhachHang: {
-        path: 'khach-hang',
-        label: 'Khách hàng',
-        component: CustomerScreen,
-      },
-      NhaCungCap: {
-        path: 'nha-cung-cap',
-        label: 'Nhà cung cấp',
-        component: SupplierScreen,
-      },
-      Kho: {
-        path: 'kho',
-        label: 'Kho',
-        component: WarehouseScreen,
-      },
-    },
-  },
-  Cat: {
-    label: 'Cắt',
-    child: {
-      KyLucTraiVai: {
-        path: 'ky-luc-trai-vai',
-        label: 'Ký lục trãi vải',
-        component: KyLucTraiVaiScreen,
-      },
-      XacNhanKyLucTraiVai: {
-        path: 'xac-nhan-ky-luc-hang-cat',
-        label: 'Xác nhận ký lục hàng cắt',
-        component: XacNhanKyLucTraiVaiScreen,
-      },
-    },
-  },
-}
-
-export const DrawerList: DrawerGroupType[] = [
+export const DrawerRoutes: DrawerGroupType[] = [
   {
     key: 0,
     name: 'ERP',

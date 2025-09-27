@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 function LoginScreen() {
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <Text>LoginScreen</Text>
     </View>
   )
 }

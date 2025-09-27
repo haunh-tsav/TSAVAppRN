@@ -1,4 +1,4 @@
-import { DrawerList } from '@/navigation/routes'
+import { DrawerRoutes } from '@/navigation/routes'
 import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
@@ -18,7 +18,7 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
 
   // 🔹 Cập nhật group hiện tại khi route đổi
   useEffect(() => {
-    const childs = DrawerList.flatMap((item) => item.childs)
+    const childs = DrawerRoutes.flatMap((item) => item.childs)
     const currentChild = childs.find((item) => item.path === currentRouteName)
     const groupName = currentChild?.groupName ?? ''
     setCurrentGroupName(groupName)
@@ -70,7 +70,7 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
             )}
           /> */}
           <List.Section>
-            {DrawerList.map((group) => {
+            {DrawerRoutes.map((group) => {
               const isGroupActive = currentGroupName === group.groupName
               return (
                 <List.Accordion

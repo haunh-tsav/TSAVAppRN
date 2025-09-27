@@ -1,16 +1,20 @@
 import { BottomRoutes } from '@/navigation/routes'
-import { AppBottomStackParamList } from '@/navigation/types'
+import { AppBottomStackParamList, RootStackParamList } from '@/navigation/types'
 import { useTheme } from '@/theme'
 import Icon from '@react-native-vector-icons/feather'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { IconButton } from 'react-native-paper'
 
 const Tab = createBottomTabNavigator<AppBottomStackParamList>()
+type AppStackNavigationProp = NativeStackNavigationProp<RootStackParamList>
 
 export default function AppStack() {
   const { colors } = useTheme()
+  const navigation = useNavigation<AppStackNavigationProp>()
 
   return (
     <Tab.Navigator
@@ -50,7 +54,7 @@ export default function AppStack() {
                 icon="bell"
                 iconColor={props.tintColor}
                 size={20}
-                onPress={() => console.log('Pressed')}
+                onPress={() => navigation.navigate('thong-bao')}
               />
             )
           },
