@@ -9,15 +9,17 @@ import GoiQCScreen from '@/screens/Home/screens/GoiQC/GoiQCScreen'
 import GoiSanXuatScreen from '@/screens/Home/screens/GoiSanXuat/GoiSanXuatScreen'
 import GoiTPSScreen from '@/screens/Home/screens/GoiTPS/GoiTPSScreen'
 import NotificationScreen from '@/screens/Home/screens/Notification/NotificationScreen'
-import IconCut from '@/theme/assets/icons/icon-cut.svg'
-import IconImprove from '@/theme/assets/icons/icon-improve.svg'
-import IconIT from '@/theme/assets/icons/icon-it.svg'
-import IconMaintenance from '@/theme/assets/icons/icon-maintenance.svg'
-import IconManufacture from '@/theme/assets/icons/icon-manufacture.svg'
-import IconPhoneQA from '@/theme/assets/icons/icon-phone-qa.svg'
-import IconPhoneQC from '@/theme/assets/icons/icon-phone-qc.svg'
-import IconProtector from '@/theme/assets/icons/icon-protector.svg'
-import IconShipping from '@/theme/assets/icons/icon-shopping.svg'
+import {
+  IconCut,
+  IconImprove,
+  IconIT,
+  IconMaintenance,
+  IconManufacture,
+  IconPhoneQA,
+  IconPhoneQC,
+  IconProtector,
+  IconShipping,
+} from '@/theme/assets/icons'
 
 export const HomeRoutes: NavigationRouteType[] = [
   {

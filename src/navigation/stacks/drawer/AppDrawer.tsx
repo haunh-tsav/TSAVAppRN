@@ -43,7 +43,7 @@ export default function AppDrawer() {
                 key={c.key}
                 component={c.component}
                 name={c.path}
-                options={{ title: c.name }}
+                options={{ title: c.label }}
               />
             )
           }),

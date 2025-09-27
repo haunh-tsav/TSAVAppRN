@@ -1,5 +1,4 @@
 import { UserRole } from '@/api/schemas/user.schema'
-import type { BottomRoutes } from '@/navigation/routes'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type RootScreenProps<
@@ -28,11 +27,11 @@ export type AuthStackParamList = {
 
 export type AppBottomStackParamList = {
   // ERP
-  [BottomRoutes.Panel.path]: undefined
-  [BottomRoutes.Explore.path]: undefined
-  [BottomRoutes.Home.path]: undefined
-  [BottomRoutes.Search.path]: undefined
-  [BottomRoutes.Profile.path]: undefined
+  panel: undefined
+  explore: undefined
+  home: undefined
+  search: undefined
+  profile: undefined
 }
 
 export type NavigationRouteType = {
@@ -43,28 +42,20 @@ export type NavigationRouteType = {
    * Material icon
    */
   icon?: FC<SvgProps>
-  component: () => JSX.Element
-}
-
-export type DrawerGroupType = {
-  key: number
-  name: string
-  groupName: string
-  roles: UserRole[]
-  iconName: string // MaterialCommunityIcons name
-  childs: DrawerItemType[]
-}
-
-export type DrawerItemType = {
-  key: number
-  name: string
-  groupName: string
-  path: string
-  roles: UserRole[]
+  roles?: UserRole[]
+  group?: string
   component:
     | React.LazyExoticComponent<() => JSX.Element>
     | React.ReactNode
     | ScreenComponentType<AppDrawerStackParamList, string>
     | undefined
-  iconName: string // MaterialCommunityIcons name
+}
+
+export type DrawerGroupType = {
+  key: string
+  label: string
+  group: string
+  roles: UserRole[]
+  icon: FC<SvgProps> // MaterialCommunityIcons name
+  childs: NavigationRouteType[]
 }

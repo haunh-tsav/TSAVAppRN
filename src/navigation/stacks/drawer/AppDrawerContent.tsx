@@ -20,11 +20,11 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
   useEffect(() => {
     const childs = DrawerRoutes.flatMap((item) => item.childs)
     const currentChild = childs.find((item) => item.path === currentRouteName)
-    const groupName = currentChild?.groupName ?? ''
+    const groupName = currentChild?.group ?? ''
     setCurrentGroupName(groupName)
 
     // 🔹 Tự động expand accordion chứa item đang active
-    if (groupName && !expandedGroups.includes(groupName)) {
+    if (groupName !== '' && !expandedGroups.includes(groupName)) {
       setExpandedGroups((prev) => [...prev, groupName])
     }
   }, [currentRouteName, expandedGroups])
@@ -37,7 +37,7 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
   const toggleAccordion = (groupName: string) => {
     setExpandedGroups((prev) =>
       prev.includes(groupName)
-        ? prev.filter((g) => g !== groupName)
+        ? prev.filter((item) => item !== groupName)
         : [...prev, groupName],
     )
   }
@@ -71,40 +71,51 @@ export function AppDrawerContent(props: DrawerContentComponentProps) {
           /> */}
           <List.Section>
             {DrawerRoutes.map((group) => {
-              const isGroupActive = currentGroupName === group.groupName
+              const isGroupActive = currentGroupName === group.group
               return (
                 <List.Accordion
                   key={group.key}
-                  title={group.name}
-                  expanded={expandedGroups.includes(group.groupName)} // ✅ controlled
-                  onPress={() => toggleAccordion(group.groupName)}
-                  left={(props) => (
-                    <List.Icon
-                      {...props}
-                      icon={group.iconName}
-                      color={colorActive(isGroupActive)}
-                    />
-                  )}
+                  title={group.label}
+                  // expanded={expandedGroups.includes(group.group)} // ✅ controlled
+                  onPress={() => toggleAccordion(group.group)}
+                  left={(props) => {
+                    return (
+                      <group.icon
+                        width={24}
+                        height={24}
+                        style={{
+                          ...props.style,
+                          color: colorActive(isGroupActive),
+                        }}
+                      />
+                    )
+                  }}
                   titleStyle={{ color: colorActive(isGroupActive) }}
                   style={{ backgroundColor: '#ffffff' }}
                 >
                   {group.childs.map((item) => (
                     <List.Item
                       key={item.path}
-                      title={item.name}
-                      onPress={() => handlePressed(item.path, item.groupName)}
+                      title={item.label}
+                      onPress={() => handlePressed(item.path, item.group ?? '')}
                       style={{ backgroundColor: '#ffffff', paddingLeft: 36 }}
                       titleStyle={{
-                        color:
-                          currentRouteName === item.path ? 'tomato' : '#333',
+                        color: colorActive(currentRouteName === item.path),
                       }}
-                      left={(props) => (
-                        <List.Icon
-                          {...props}
-                          icon={item.iconName}
-                          color={colorActive(item.path === currentRouteName)}
-                        />
-                      )}
+                      left={(props) => {
+                        return (
+                          <group.icon
+                            width={24}
+                            height={24}
+                            style={{
+                              ...props.style,
+                              color: colorActive(
+                                item.path === currentRouteName,
+                              ),
+                            }}
+                          />
+                        )
+                      }}
                     />
                   ))}
                 </List.Accordion>

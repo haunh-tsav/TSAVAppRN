@@ -1,8 +1,4 @@
-import AppStack from '@/navigation/stacks/AppStack'
-import AuthStack from '@/navigation/stacks/AuthStack'
-import { DrawerGroupType } from '@/navigation/types'
-import LoginScreen from '@/screens/Auth/Login/LoginScreen'
-import RegisterScreen from '@/screens/Auth/Register/RegisterScreen'
+import { DrawerGroupType, NavigationRouteType } from '@/navigation/types'
 import KyLucTraiVaiScreen from '@/screens/Cut/KyLucTraiVaiScreen'
 import XacNhanKyLucTraiVaiScreen from '@/screens/Cut/XacNhanKyLucTraiVaiScreen'
 import KhachHangScreen from '@/screens/ERP/KhachHangScreen'
@@ -15,119 +11,125 @@ import PanelScreen from '@/screens/Panel/PanelScreen'
 import ProductScreen from '@/screens/Product/ProductScreen'
 import ProfileScreen from '@/screens/Profile/ProfileScreen'
 import SearchScreen from '@/screens/Search/SearchScreen'
+import { IconERP, IconUser } from '@/theme/assets/icons'
 
-export const BottomRoutes = {
-  Panel: {
+export const BottomRoutes: NavigationRouteType[] = [
+  {
+    key: '0',
     label: 'Panel',
-    path: 'Panel',
-    icon: 'panel',
+    path: 'panel',
+    icon: IconERP,
     component: PanelScreen,
   },
-  Home: {
-    label: 'Home',
-    path: 'Home',
-    icon: 'home',
-    component: HomeScreen,
-  },
-  Explore: {
+  {
+    key: '2',
     label: 'Explore',
-    path: 'Explore',
-    icon: 'explore',
+    path: 'explore',
+    icon: IconERP,
     component: ExploreScreen,
   },
-  Search: {
+  {
+    key: '1',
+    label: 'Home',
+    path: 'home',
+    icon: IconERP,
+    component: HomeScreen,
+  },
+  {
+    key: '3',
     label: 'Search',
-    path: 'Search',
-    icon: 'search',
+    path: 'search',
+    icon: IconERP,
     component: SearchScreen,
   },
-  Profile: {
+  {
+    key: '4',
     label: 'Profile',
-    path: 'Profile',
-    icon: 'pro',
+    path: 'profile',
+    icon: IconERP,
     component: ProfileScreen,
   },
-}
+]
 
 export const DrawerRoutes: DrawerGroupType[] = [
   {
-    key: 0,
-    name: 'ERP',
-    groupName: 'ERP',
+    key: '0',
+    label: 'ERP',
+    group: 'ERP',
     roles: ['admin', 'user'],
-    iconName: 'folder',
+    icon: IconERP,
     childs: [
       {
-        key: 0,
-        name: 'Khách hàng',
-        groupName: 'ERP',
+        key: '0',
+        label: 'Khách hàng',
+        group: 'ERP',
         path: 'khach-hang',
         roles: ['admin', 'guest'],
         component: KhachHangScreen,
-        iconName: 'folder',
+        icon: IconUser,
       },
       {
-        key: 1,
-        name: 'Nhà cung cấp',
-        groupName: 'ERP',
+        key: '1',
+        label: 'Nhà cung cấp',
+        group: 'ERP',
         path: 'nha-cung-cap',
         roles: ['admin'],
         component: NhaCungCapScreen,
-        iconName: 'folder',
+        icon: IconUser,
       },
       {
-        key: 2,
-        name: 'Kho',
-        groupName: 'ERP',
+        key: '2',
+        label: 'Kho',
+        group: 'ERP',
         path: 'kho',
         roles: ['admin'],
         component: KhoScreen,
-        iconName: 'folder',
+        icon: IconUser,
       },
       {
-        key: 3,
-        name: 'Hạng mục',
-        groupName: 'ERP',
+        key: '3',
+        label: 'Hạng mục',
+        group: 'ERP',
         path: 'hang-muc',
         roles: ['admin'],
         component: HangMucScreen,
-        iconName: 'folder',
+        icon: IconUser,
       },
       {
-        key: 4,
-        name: 'Sản phẩm',
-        groupName: 'ERP',
+        key: '4',
+        label: 'Sản phẩm',
+        group: 'ERP',
         path: 'san-pham',
         roles: ['admin'],
         component: ProductScreen,
-        iconName: 'folder',
+        icon: IconUser,
       },
     ],
   },
   {
-    key: 1,
-    name: 'Cắt',
-    groupName: 'Cat',
+    key: '1',
+    label: 'Cắt',
+    group: 'Cat',
     roles: ['admin', 'user'],
-    iconName: 'folder',
+    icon: IconUser,
     childs: [
       {
-        key: 0,
-        name: 'Ký lục trãi vãi',
-        groupName: 'Cat',
+        key: '0',
+        label: 'Ký lục trãi vãi',
+        group: 'Cat',
         path: 'ky-luc-trai-vai',
         roles: ['admin', 'user'],
         component: KyLucTraiVaiScreen,
-        iconName: 'folder',
+        icon: IconUser,
       },
       {
-        key: 1,
-        name: 'Xác nhận ký lục trãi vãi',
-        groupName: 'Cat',
+        key: '1',
+        label: 'Xác nhận ký lục trãi vãi',
+        group: 'Cat',
         path: 'xac-nhan-ky-luc-trai-vai',
         roles: ['admin', 'user'],
         component: XacNhanKyLucTraiVaiScreen,
-        iconName: 'folder',
+        icon: IconUser,
       },
     ],
   },

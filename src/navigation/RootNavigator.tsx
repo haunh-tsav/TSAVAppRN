@@ -32,7 +32,7 @@ export default function RootNavigator() {
       >
         <RootStack.Navigator
           // key={variant}
-          initialRouteName={!authenticated ? 'thong-bao' : 'auth'}
+          initialRouteName={!authenticated ? 'app' : 'auth'}
           screenOptions={{ headerShown: false }}
         >
           <RootStack.Screen component={AppStack} name="app" />
@@ -50,7 +50,11 @@ export default function RootNavigator() {
           <RootStack.Screen component={GoiSanXuatScreen} name="goi-san-xuat" />
           <RootStack.Screen component={GoiTPSScreen} name="goi-tps" />
           <RootStack.Screen component={GoiAnToanScreen} name="goi-an-toan" />
-          <RootStack.Screen component={NotificationScreen} name="thong-bao" />
+          <RootStack.Screen
+            component={NotificationScreen}
+            name="thong-bao"
+            options={{ headerShown: true, title: 'Thông báo' }}
+          />
         </RootStack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
