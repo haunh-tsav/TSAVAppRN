@@ -6,14 +6,14 @@ import { FlatList, View } from 'react-native'
 
 const fixedData: NotificationItemProps[] = [
   {
-    title: 'Title',
-    summary: 'string;',
+    title: 'Vừa gọi yêu cầu bảo trì máy',
+    summary: 'Máy gấp S20P US - Tại CĐ 49-2;',
     dateTime: 'Date time',
     status: false,
   },
   {
-    title: 'Title2',
-    summary: 'string2',
+    title: 'Vừa gọi yêu cầu bảo trì máy',
+    summary: 'Máy gấp S20P US - Tại CĐ 49-2',
     dateTime: 'Date time2',
     status: true,
   },
