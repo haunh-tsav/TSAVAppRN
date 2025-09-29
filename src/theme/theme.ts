@@ -15,6 +15,8 @@ const pallete: Pallete = {
   primary800: '#02456e',
   primary900: '#01314d',
 
+  
+
   // Grays
   gray100: '#f9fafb',
   gray200: '#d8dee5',

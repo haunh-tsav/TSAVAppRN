@@ -8,7 +8,6 @@ import GoiQAScreen from '@/screens/Home/screens/GoiQA/GoiQAScreen'
 import GoiQCScreen from '@/screens/Home/screens/GoiQC/GoiQCScreen'
 import GoiSanXuatScreen from '@/screens/Home/screens/GoiSanXuat/GoiSanXuatScreen'
 import GoiTPSScreen from '@/screens/Home/screens/GoiTPS/GoiTPSScreen'
-import NotificationScreen from '@/screens/Home/screens/Notification/NotificationScreen'
 import {
   IconCut,
   IconImprove,
@@ -84,12 +83,5 @@ export const HomeRoutes: NavigationRouteType[] = [
     path: 'goi-an-toan',
     icon: IconProtector,
     component: GoiAnToanScreen,
-  },
-  {
-    key: '9',
-    label: 'Thông báo',
-    path: 'thong-bao',
-    icon: IconProtector,
-    component: NotificationScreen,
   },
 ]

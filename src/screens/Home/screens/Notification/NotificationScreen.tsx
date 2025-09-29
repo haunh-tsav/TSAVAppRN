@@ -1,12 +1,41 @@
+import NotificationItem, {
+  NotificationItemProps,
+} from '@/screens/Home/screens/Notification/components/NotificationItem'
 import React from 'react'
-import { Text, View } from 'react-native'
+import { FlatList, View } from 'react-native'
 
-const NotificationScreen = () => {
+const fixedData: NotificationItemProps[] = [
+  {
+    title: 'Title',
+    summary: 'string;',
+    dateTime: 'Date time',
+    status: false,
+  },
+  {
+    title: 'Title2',
+    summary: 'string2',
+    dateTime: 'Date time2',
+    status: true,
+  },
+]
+
+export default function NotificationScreen() {
   return (
     <View>
-      <Text>NotificationScreen</Text>
+      <FlatList
+        data={fixedData}
+        renderItem={({ item, index }) => {
+          return (
+            <NotificationItem
+              key={index}
+              title={item.title}
+              summary={item.summary}
+              dateTime={item.dateTime}
+              status={item.status}
+            />
+          )
+        }}
+      />
     </View>
   )
 }
-
-export default NotificationScreen

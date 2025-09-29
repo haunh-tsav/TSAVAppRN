@@ -1,7 +1,7 @@
 // src/api/services/posts.service.ts
 
 import apiClient from '@/api/client'
-import { Product } from '@/api/schemas/product.schema'
+import { Product } from '@/api/models/product'
 import { RequestDataType, ResponseDataType } from '@/api/types'
 import logAxiosError from '@/utils/logAxiosError'
 import { AxiosError } from 'axios'

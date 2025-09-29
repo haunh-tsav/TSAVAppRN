@@ -1,7 +1,7 @@
 // src/api/services/posts.service.ts
 
 import apiClient from '@/api/client'
-import { User, User2 } from '@/api/schemas/user.schema'
+import { User, User2 } from '@/api/models/user'
 import { RequestDataType, ResponseDataType } from '@/api/types'
 import { AxiosError } from 'axios'
 

@@ -1,5 +1,5 @@
 import apiClient from '@/api/client'
-import { User } from '@/api/schemas/user.schema'
+import { User } from '@/api/models/user'
 import { ResponseDataType } from '@/api/types'
 
 const NAMESPACE = '/auth'

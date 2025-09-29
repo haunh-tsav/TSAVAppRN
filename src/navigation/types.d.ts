@@ -1,4 +1,4 @@
-import { UserRole } from '@/api/schemas/user.schema'
+import { UserRole } from '@/api/models/user'
 import type { NativeStackScreenProps } from '@react-navigation/native-stack'
 
 export type RootScreenProps<
