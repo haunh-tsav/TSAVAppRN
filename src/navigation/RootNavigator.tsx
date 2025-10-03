@@ -16,6 +16,7 @@ import GoiQAScreen from '@/screens/Home/screens/GoiQA/GoiQAScreen'
 import GoiQCScreen from '@/screens/Home/screens/GoiQC/GoiQCScreen'
 import GoiSanXuatScreen from '@/screens/Home/screens/GoiSanXuat/GoiSanXuatScreen'
 import GoiTPSScreen from '@/screens/Home/screens/GoiTPS/GoiTPSScreen'
+import NotificationItemDetails from '@/screens/Home/screens/Notification/NotificationItemDetails'
 import NotificationScreen from '@/screens/Home/screens/Notification/NotificationScreen'
 import { useTheme } from '@/theme'
 
@@ -33,7 +34,7 @@ export default function RootNavigator() {
       >
         <RootStack.Navigator
           // key={variant}
-          initialRouteName={!authenticated ? 'app' : 'auth'}
+          initialRouteName={!authenticated ? 'thong-bao' : 'auth'}
           screenOptions={{ headerShown: false }}
         >
           <RootStack.Screen component={AppStack} name="app" />
@@ -57,6 +58,19 @@ export default function RootNavigator() {
             options={{
               headerShown: true,
               title: 'Thông báo',
+              headerTitleAlign: 'center',
+              headerTintColor: colors.white,
+              headerStyle: {
+                backgroundColor: colors.primary,
+              },
+            }}
+          />
+          <RootStack.Screen
+            component={NotificationItemDetails}
+            name="thong-bao-chi-tiet"
+            options={{
+              headerShown: true,
+              title: 'Thông báo chi tiết',
               headerTitleAlign: 'center',
               headerTintColor: colors.white,
               headerStyle: {

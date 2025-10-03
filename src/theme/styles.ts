@@ -13,7 +13,7 @@ export const createGlobalStyles = (theme: Theme) => ({
     marginBottom: theme.spacing.xl,
   },
   titleSection: {
-    ...theme.typography.h3,
+    ...theme.typography.h2,
     color: theme.colors.primary,
     textAlign: 'left' as const,
   },

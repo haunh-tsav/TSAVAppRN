@@ -5,7 +5,7 @@ import { ColorPallete } from './types'
 // Định nghĩa cấu trúc màu sắc cho Light Theme
 const lightColors: ColorPallete = {
   primary: '#0466a4',
-  primaryLight: '#057ac5', // Dùng khi nhấn nút
+  primaryLight: '#B3D5E9', // Dùng khi nhấn nút
   primaryDark: '#035283',
   accent: '#FFC107', // Vàng gold/hổ phách
   background: '#F8F9FA', // Nền xám rất nhạt
@@ -23,7 +23,7 @@ const lightColors: ColorPallete = {
 // Định nghĩa cấu trúc màu sắc cho Light Theme
 const darkColors: ColorPallete = {
   primary: '#0466a4',
-  primaryLight: '#057ac5', // Dùng khi nhấn nút
+  primaryLight: '#B3D5E9', // Dùng khi nhấn nút
   primaryDark: '#035283',
   accent: '#FFC107', // Vàng gold/hổ phách
   background: '#F8F9FA', // Nền xám rất nhạt

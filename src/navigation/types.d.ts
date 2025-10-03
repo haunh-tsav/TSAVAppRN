@@ -18,6 +18,9 @@ export type RootStackParamList = {
   'goi-tps': undefined // Màn hình không nhận tham số
   'goi-an-toan': undefined // Màn hình không nhận tham số
   'thong-bao': undefined // Màn hình không nhận tham số
+  'thong-bao-chi-tiet': {
+    id: string
+  } // Màn hình không nhận tham số
 }
 
 export type AuthStackParamList = {
