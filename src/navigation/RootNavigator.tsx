@@ -34,7 +34,7 @@ export default function RootNavigator() {
       >
         <RootStack.Navigator
           // key={variant}
-          initialRouteName={!authenticated ? 'thong-bao' : 'auth'}
+          initialRouteName={!authenticated ? 'app' : 'auth'}
           screenOptions={{ headerShown: false }}
         >
           <RootStack.Screen component={AppStack} name="app" />
